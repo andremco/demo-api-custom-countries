@@ -1,5 +1,6 @@
 using CustomCountries.API.Filters;
 using CustomCountries.API.Middlewares;
+using CustomCountries.API.Settings;
 using CustomCountries.Application.AutoMapper;
 using CustomCountries.Application.Services;
 using CustomCountries.Application.Services.Interfaces;
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
@@ -71,7 +73,7 @@ namespace CustomCountries.API
             services.AddAuthentication("Bearer")
             .AddJwtBearer("Bearer", options =>
             {
-                var authority = Configuration["Authority"];
+                var authority = Configuration["DemoIdentityServer:Authority"];
                 options.Authority = authority;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
@@ -110,12 +112,16 @@ namespace CustomCountries.API
             });
 
             services.AddHttpContextAccessor();
+            services.AddApplicationInsightsTelemetry();
+
             RegisterServices(services);
         }
 
         private void RegisterServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(CountryProfile));
+
+            services.Configure<ApplicationInsightsSettings>(Configuration.GetSection("ApplicationInsights"));
 
             #region Service
             services.AddScoped<ICountryService, CountryService>();
@@ -134,7 +140,7 @@ namespace CustomCountries.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IOptions<ApplicationInsightsSettings> options)
         {
             if (env.IsDevelopment())
             {
@@ -156,9 +162,11 @@ namespace CustomCountries.API
 
             app.UseCors("PolicyAPI");
 
+            app.UseMiddleware<LogMiddleware>();
+
             app.UseExceptionHandler(new ExceptionHandlerOptions
             {
-                ExceptionHandler = new ErrorHandlerMiddleware(env).Invoke
+                ExceptionHandler = new ErrorHandlerMiddleware(options, env).Invoke
             });
 
             app.UseEndpoints(endpoints =>

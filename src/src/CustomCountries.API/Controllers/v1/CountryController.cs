@@ -28,6 +28,7 @@ namespace CustomCountries.API.Controllers.v1
         /// </summary>        
         /// <returns>Get All Custom Countries</returns>
         /// <response code="200">Return all custom countries</response>
+        /// <response code="401">Unauthorized</response>        
         /// <response code="404">Not found</response>       
         /// <response code="500">Internal server error</response> 
         [HttpGet]
@@ -49,7 +50,8 @@ namespace CustomCountries.API.Controllers.v1
         /// <param name="countryViewModel">Request Country</param>
         /// <returns>Custom Country</returns>
         /// <response code="200">Return custom country</response>
-        /// <response code="400">Bad request</response>       
+        /// <response code="400">Bad request</response>
+        /// <response code="401">Unauthorized</response>
         /// <response code="500">Internal server error</response> 
         [HttpPost]
         public async Task<ActionResult<CountryViewModel>> PostCustomCountry([FromBody] CountryViewModel countryViewModel)
