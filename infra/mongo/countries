@@ -1,0 +1,15 @@
+{"_id":{"$oid":"61cb2cafeb5a93b3f1dc54dd"},"Name":"Netherlands","Native":"Nederland","Capital":"Amsterdam","Emoji":"🇳🇱","Currency":"EUR","Languages":[{"Code":"nl","Name":"Dutch"}]}
+{"_id":{"$oid":"61cb2d11eb5a93b3f1dc54de"},"Name":"Brazil","Native":"Brasil","Capital":"Brasília","Emoji":"🇧🇷","Currency":"BRL","Languages":[{"Code":"pt","Name":"Portuguese"}]}
+{"_id":{"$oid":"61cb2e22eb5a93b3f1dc54df"},"Name":"China","Native":"中国","Capital":"Beijing","Emoji":"🇨🇳","Currency":"CNY","Languages":[{"Code":"zh","Name":"Chinese"}]}
+{"_id":{"$oid":"61cb2e3feb5a93b3f1dc54e0"},"Name":"Argentina","Native":"Argentina","Capital":"Buenos Aires","Emoji":"🇦🇷","Currency":"ARS","Languages":[{"Code":"es","Name":"Spanish"},{"Code":"gn","Name":"Guarani"}]}
+{"_id":{"$oid":"61cb2e69eb5a93b3f1dc54e1"},"Name":"Switzerland","Native":"Schweiz","Capital":"Bern","Emoji":"🇨🇭","Currency":"CHE,CHF,CHW","Languages":[{"Code":"de","Name":"German"},{"Code":"fr","Name":"French"},{"Code":"it","Name":"Italian"}]}
+{"_id":{"$oid":"61cb2e82eb5a93b3f1dc54e2"},"Name":"United States","Native":"United States","Capital":"Washington D.C.","Emoji":"🇺🇸","Currency":"USD,USN,USS","Languages":[{"Code":"en","Name":"English"}]}
+{"_id":{"$oid":"61cb2ea3eb5a93b3f1dc54e3"},"Name":"Italy","Native":"Italia","Capital":"Rome","Emoji":"🇮🇹","Currency":"EUR","Languages":[{"Code":"it","Name":"Italian"}]}
+{"_id":{"$oid":"61cb2ec5eb5a93b3f1dc54e4"},"Name":"Afghanistan","Native":"افغانستان","Capital":"Kabul","Emoji":"🇦🇫","Currency":"AFN","Languages":[{"Code":"ps","Name":"Pashto"},{"Code":"uz","Name":"Uzbek"},{"Code":"tk","Name":"Turkmen"}]}
+{"_id":{"$oid":"61cb2ed9eb5a93b3f1dc54e5"},"Name":"Australia","Native":"Australia","Capital":"Canberra","Emoji":"🇦🇺","Currency":"AUD","Languages":[{"Code":"en","Name":"English"}]}
+{"_id":{"$oid":"61cb2ef6eb5a93b3f1dc54e6"},"Name":"Germany","Native":"Deutschland","Capital":"Berlin","Emoji":"🇩🇪","Currency":"EUR","Languages":[{"Code":"de","Name":"German"}]}
+{"_id":{"$oid":"61cb2f10eb5a93b3f1dc54e7"},"Name":"Russia","Native":"Россия","Capital":"Moscow","Emoji":"🇷🇺","Currency":"RUB","Languages":[{"Code":"ru","Name":"Russian"}]}
+{"_id":{"$oid":"61cb2f23eb5a93b3f1dc54e8"},"Name":"Japan","Native":"日本","Capital":"Tokyo","Emoji":"🇯🇵","Currency":"JPY","Languages":[{"Code":"ja","Name":"Japanese"}]}
+{"_id":{"$oid":"61cb2f3eeb5a93b3f1dc54e9"},"Name":"Turkey","Native":"Türkiye","Capital":"Ankara","Emoji":"🇹🇷","Currency":"TRY","Languages":[{"Code":"tr","Name":"Turkish"}]}
+{"_id":{"$oid":"61cb2f98eb5a93b3f1dc54ea"},"Name":"Greece","Native":"Ελλάδα","Capital":"Athens","Emoji":"🇬🇷","Currency":"EUR","Languages":[{"Code":"el","Name":"Greek"}]}
+{"_id":{"$oid":"61cb2fd6eb5a93b3f1dc54eb"},"Name":"Hong Kong","Native":"香港","Capital":"City of Victoria","Emoji":"🇭🇰","Currency":"HKD","Languages":[{"Code":"zh","Name":"Chinese"},{"Code":"en","Name":"English"}]}
