@@ -25,6 +25,7 @@ Projeto .Net Core que lista países através de uma api. As informações para c
 - Visual Studio ou algum outro IDE que rode .Net Core 3.1
 - Conexão com banco de dados NoSql MongoDB
 - Chave do Application Insights AZ
+- Projeto authority - [demo identity server auth](https://github.com/andremco/demo-identity-server-auth)
 
 ### Instância MongoDB NoSql local
 Para rodar a api localmente, foi utilizado o ambiente docker contendo as instâncias do mongodb e do mongo-express. No diretório `infra/mongo` contém o `docker-compose.yml` com os devidos containers. É necessário ter o docker instalado no seu ambiente de desenvolvimento, e rodar o seguinte comando, para subir as instâncias:  

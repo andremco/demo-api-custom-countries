@@ -152,6 +152,13 @@ namespace Demo.CustomCountries.API
                 });
             }
 
+            app.UseMiddleware<LogMiddleware>();
+
+            app.UseExceptionHandler(new ExceptionHandlerOptions
+            {
+                ExceptionHandler = new ErrorHandlerMiddleware(options, env).Invoke
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -161,13 +168,6 @@ namespace Demo.CustomCountries.API
             app.UseAuthorization();
 
             app.UseCors("PolicyAPI");
-
-            app.UseMiddleware<LogMiddleware>();
-
-            app.UseExceptionHandler(new ExceptionHandlerOptions
-            {
-                ExceptionHandler = new ErrorHandlerMiddleware(options, env).Invoke
-            });
 
             app.UseEndpoints(endpoints =>
             {
