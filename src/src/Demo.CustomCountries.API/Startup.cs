@@ -79,6 +79,7 @@ namespace Demo.CustomCountries.API
                 {
                     ValidateAudience = false
                 };
+                options.RequireHttpsMetadata = false;
             });
 
             services.AddAuthorization(options =>
