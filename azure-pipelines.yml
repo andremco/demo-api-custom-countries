@@ -5,15 +5,37 @@
 
 trigger:
 - main
+- dev
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'windows-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: UseDotNet@2
+  displayName: 'Runtime Net Core 3.0.x'
+  inputs:
+    version: '3.0.x'
+    packageType: runtime
+
+- task: DotNetCoreCLI@2
+  displayName: 'Start Building Project $(BuildConfiguration)'
+  inputs:
+    command: 'build'
+    arguments: '--configuration $(BuildConfiguration)'
+    projects: '**/*.sln'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish Project $(BuildConfiguration) to $(System.ArtifactsDirectory)'
+  inputs:
+    command: 'publish'
+    projects: '**/$(NameProject).csproj'
+    arguments: '--no-build --no-restore /p:Configuration=$(BuildConfiguration) /p:EnvironmentName=Production -o $(System.ArtifactsDirectory)'
+    publishWebProjects: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Artifacts $(System.ArtifactsDirectory)'
+  inputs:
+    pathtoPublish: '$(System.ArtifactsDirectory)' 
+    artifactName: 'drop' 
+    publishLocation: 'Container'
