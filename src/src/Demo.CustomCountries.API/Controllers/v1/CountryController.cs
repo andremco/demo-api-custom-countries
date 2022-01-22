@@ -73,7 +73,7 @@ namespace Demo.CustomCountries.API.Controllers.v1
         /// <response code="400">Bad request</response>
         /// <response code="401">Unauthorized</response>
         /// <response code="500">Internal server error</response> 
-        [HttpPost("testError")]
+        [HttpPost("errorTest")]
         public async Task<ActionResult<CountryViewModel>> ErrorTest([FromBody] CountryViewModel countryViewModel)
         {
             throw new System.NotImplementedException("Error test for application insights capture");
