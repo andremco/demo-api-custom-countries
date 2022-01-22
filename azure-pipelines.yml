@@ -26,6 +26,7 @@ steps:
     projects: '**/*.sln'
 
 - task: DotNetCoreCLI@2
+  displayName: 'Tests Project $(BuildConfiguration)'
   inputs:
     command: 'test'
     projects: '**/*.Tests.csproj'
