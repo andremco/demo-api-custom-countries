@@ -1,4 +1,4 @@
-# Projeto custom countries
+# Projeto demo api custom countries
 
 Projeto .Net Core que lista países através de uma api. As informações para cadastro de um país, pode ser obtido neste link [countries graphql](https://countries.trevorblades.com/)
 
@@ -20,13 +20,13 @@ Projeto .Net Core que lista países através de uma api. As informações para c
 }
 ```
 
-## 1 - Pré requisitos para rodar local
+## Pré requisitos para rodar local
 
 - Visual Studio ou algum outro IDE que rode .Net Core 3.1
 - Conexão com banco de dados NoSql MongoDB
-- SDK .Net Core 3.1
+- Chave do Application Insights AZ
 
-### 1.2 - Instância MongoDB NoSql
+### Instância MongoDB NoSql local
 Para rodar a api localmente, foi utilizado o ambiente docker contendo as instâncias do mongodb e do mongo-express. No diretório `infra/mongo` contém o `docker-compose.yml` com os devidos containers. É necessário ter o docker instalado no seu ambiente de desenvolvimento, e rodar o seguinte comando, para subir as instâncias:  
 
 ```console
@@ -34,6 +34,10 @@ docker-compose up --force-recreate -d
 ```
 
 Se preferir, pode utilizar também a instância community edition do mongodb. Instruções para instalar esta versão em seu ambiente [mongodb - install](https://docs.mongodb.com/manual/administration/install-community/).
+
+## Obter instrumentation key do application insights
+
+Para mais informações, segue este [tutorial](https://docs.microsoft.com/pt-br/azure/azure-monitor/app/create-new-resource).
 
 ## Arquitetura da API
 - Utilizando injeção de dependências nas classes
