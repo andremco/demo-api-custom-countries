@@ -12,18 +12,23 @@ pool:
 
 steps:
 
-- task: UseDotNet@2
-  displayName: 'Runtime Net Core 3.0.x'
-  inputs:
-    version: '3.0.x'
-    packageType: runtime
-
 - task: DotNetCoreCLI@2
   displayName: 'Start Building Project $(BuildConfiguration)'
   inputs:
     command: 'build'
     arguments: '--configuration $(BuildConfiguration)'
     projects: '**/*.sln'
+
+- task: UseDotNet@2
+  displayName: 'Runtime Net Core 3.1.x'
+  inputs:
+    version: '3.1.x'
+    packageType: sdk
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/*.Tests.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish Project $(BuildConfiguration) to $(System.ArtifactsDirectory)'
