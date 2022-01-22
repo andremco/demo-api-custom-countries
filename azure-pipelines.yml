@@ -26,6 +26,11 @@ steps:
     projects: '**/*.sln'
 
 - task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/*.Tests.csproj'
+
+- task: DotNetCoreCLI@2
   displayName: 'Publish Project $(BuildConfiguration) to $(System.ArtifactsDirectory)'
   inputs:
     command: 'publish'
