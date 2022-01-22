@@ -29,7 +29,6 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*.Tests.csproj'
-    arguments: '--arch win-x64'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish Project $(BuildConfiguration) to $(System.ArtifactsDirectory)'
