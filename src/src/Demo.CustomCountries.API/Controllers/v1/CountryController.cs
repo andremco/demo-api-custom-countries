@@ -63,5 +63,27 @@ namespace Demo.CustomCountries.API.Controllers.v1
             
             return Ok(countryViewModel);
         }
+
+        /// <summary>
+        /// Error test for application insights capture 
+        /// </summary>        
+        /// <param name="countryViewModel">Request Country</param>
+        /// <returns>Exception</returns>
+        /// <response code="200">Return custom country</response>
+        /// <response code="400">Bad request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="500">Internal server error</response> 
+        [HttpPost("testError")]
+        public async Task<ActionResult<CountryViewModel>> ErrorTest([FromBody] CountryViewModel countryViewModel)
+        {
+            throw new System.NotImplementedException("Error test for application insights capture");
+
+            await _countryService.InsertOrUpdateCountry(countryViewModel);
+
+            if (_domainNotification.HasNotifications)
+                return new EmptyResult();
+
+            return Ok(countryViewModel);
+        }
     }
 }
